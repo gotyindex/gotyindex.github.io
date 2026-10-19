@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/favicon.png">
+    <title>GOTY 2026</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+            <nav class="header-nav">
+        <a href="https://gotyindex.github.io/" class="nav-link">Main Page</a>
+        <a href="../guidelines" class="nav-link">Guidelines</a>
+        <a href="../contact" class="nav-link">Help Expand Database!</a>
+
+    </nav>
+        <h1>🏆 Game of the Year 2026 🏆</h1>
+    </header>
+
+<main class="ranking">
+        <div class="game-entry top-winner"> 
+    <span class="rank-number"></span>
+    <img src="../img/pokopia.png" alt="Baldur's Gate 3 Cover" class="game-cover-small">
+
+    <div class="game-info">
+
+        <h3>Pokémon Pokopia</h3>
+        <p>🎮 Omega Force, Game Freak (🇯🇵)</p>
+        <p>🏢 Nintendo (🇯🇵)</p>
+        <span class="media-toggle-arrow">▼</span>
+        
+        <div class="media-list">
+            <ol>
+                <li><a href="https://www.youtube.com/watch?v=r79syjKpvP0" target="_blank" class="media-link">Japan Game Awards 2026 (JP)</a></li>
+            </ol>
+       </div>
+    </div>
+    <div class="award-count">
+        <span class="count-number"></span>
+    </div>
+</div>
+
+</main>
+
+<div class="total-stats-box">
+    Awards Total: <span id="total-awards-display">0</span>
+</div>
+
+
+<div class="contribute-box">
+    <p>
+        Would you like to help us expand the GOTY database? <br>
+        Join here: 
+        <a href="https://www.resetera.com/threads/2026-video-game-awards-season-tracking-and-discussion-thread.1661068/" target="_blank" class="contribute-link">
+            ResetEra - 2026 Video Game Awards Season
+        </a>
+    </p>
+</div>
+
+<script>
+    // --- (Tato část zůstává stejná: click event) ---
+document.querySelectorAll('.media-toggle-arrow').forEach(arrow => {
+    arrow.addEventListener('click', function(e) {
+        // Zastaví šíření kliknutí (kdyby náhodou karta měla jiný odkaz)
+        e.stopPropagation();
+        
+        // Najde nejbližší nadřazenou kartu .game-entry
+        const entry = this.closest('.game-entry');
+        
+        // Přepne třídu pro zobrazení/skrytí
+        entry.classList.toggle('show-media');
+    });
+});
+
+function toggleMentions() {
+    const content = document.getElementById('mentions-list');
+    const arrow = document.getElementById('mention-arrow');
+    
+    content.classList.toggle('open');
+    arrow.classList.toggle('rotate');
+}
+
+    // --- NOVÁ FUNKCE S PROCENTY A CELKOVÝM SOUČTEM ---
+    function sortGamesByAwards() {
+        const rankingContainer = document.querySelector('.ranking');
+        const totalDisplay = document.getElementById('total-awards-display'); // Odkaz na spodní kolonku
+        
+        if (!rankingContainer) return;
+
+        let gameEntries = Array.from(rankingContainer.querySelectorAll('.game-entry'));
+
+        // 1. Zjistíme CELKOVÝ POČET všech ocenění na stránce
+        let grandTotalAwards = 0;
+        
+        gameEntries.forEach(entry => {
+            const mediaList = entry.querySelector('.media-list ol');
+            const count = mediaList ? mediaList.children.length : 0;
+            grandTotalAwards += count;
+        });
+
+        // 2. Vypíšeme celkový součet do spodní kolonky
+        if (totalDisplay) {
+            totalDisplay.textContent = grandTotalAwards;
+        }
+
+        // 3. Seřadíme hry (stejné jako předtím)
+        gameEntries.sort((a, b) => {
+            const countA = a.querySelector('.media-list ol') ? a.querySelector('.media-list ol').children.length : 0;
+            const countB = b.querySelector('.media-list ol') ? b.querySelector('.media-list ol').children.length : 0;
+            return countB - countA;
+        });
+
+        // 4. Přeskládání a výpis procent
+        const fragment = document.createDocumentFragment();
+
+        gameEntries.forEach((entry, index) => {
+            const mediaList = entry.querySelector('.media-list ol');
+            const finalCount = mediaList ? mediaList.children.length : 0;
+            
+            // Výpočet procent (ošetřeno dělení nulou)
+            let percentage = 0;
+            if (grandTotalAwards > 0) {
+                percentage = ((finalCount / grandTotalAwards) * 100).toFixed(1); // Zaokrouhlí na 1 desetinné místo
+            }
+
+            // a) Pořadí
+            const rankNumber = entry.querySelector('.rank-number');
+            if (rankNumber) rankNumber.textContent = (index + 1) + "."; 
+
+            // b) Počet ocenění + PROCENTA
+            const awardCountSpan = entry.querySelector('.count-number');
+            if (awardCountSpan) {
+                const suffix = (finalCount === 1) ? " Award" : " Awards";
+                
+                // Vytvoříme HTML: Číslo a text + na dalším řádku procenta
+                awardCountSpan.innerHTML = `
+                    ${finalCount}${suffix}
+                    <span class="percentage-label">${percentage}%</span>
+                `;
+            }
+            
+            entry.classList.remove('top-winner');
+            fragment.appendChild(entry);
+        });
+        
+        rankingContainer.appendChild(fragment);
+
+        if (gameEntries.length > 0) {
+            gameEntries[0].classList.add('top-winner');
+        }
+    }
+    document.addEventListener('DOMContentLoaded', sortGamesByAwards);
+</script>
+    </main>
+<hr style="margin-top: 50px; border: 0; border-top: 1px solid #333;">
+
+<footer style="text-align: center; padding: 20px; font-size: 0.9em; color: #888;">
+    <p>© 2026 <strong>GOTYINDEX</strong></p>
+    <p>
+        This work is licensed under 
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" style="color: #f39c12; text-decoration: none;">
+            CC BY-NC 4.0 (Creative Commons Attribution-NonCommercial)
+        </a>
+    </p>
+</footer>
+</html>	
