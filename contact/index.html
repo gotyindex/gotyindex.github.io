@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/favicon.png">
+    <title>GOTY INDEX - Contact</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<script>
+function filterYear(year, clickedElement) {
+    // 1. Přepnutí aktivního vzhledu tlačítek
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    clickedElement.classList.add('active');
+
+    // 2. Samotné filtrování řádků
+    const rows = document.querySelectorAll('.filter-row');
+    
+    rows.forEach(row => {
+        if (year === 'all') {
+            row.classList.remove('hidden');
+        } else {
+            // Kontrolujeme, zda má řádek třídu odpovídající roku (např. year-2025)
+            if (row.classList.contains('year-' + year)) {
+                row.classList.remove('hidden');
+            } else {
+                row.classList.add('hidden');
+            }
+        }
+    });
+}
+</script>
+<body>
+    <header class="main-header">
+        <nav class="header-nav">
+            <a href="https://www.gotyindex.com/" class="nav-link">Main page</a>
+            <a href="../guidelines" class="nav-link">Guidelines</a>
+        </nav>
+        <h1>📠 Contact </h1>
+    </header>
+    
+    <main class="content-container">
+        
+        <section class="info-card">
+            <h2 align="center">Send your proposal to expand our GOTY database!</h2>
+            <div class="guidelines-section" align="center">
+<div class="iframe-container">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfFZhFUkFYfduIUkaH-qSOuE0pB6EIpw6UohPEmSXeL1q7TPA/viewform?embedded=true" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0">
+        Načítání…
+    </iframe>
+</div>
+        </div>
+        </section>
+        <section class="info-card">
+    <h2 align="center">Media eligibility status - Final decision</h2>
+    
+    <div class="year-filter">
+        <button class="filter-btn active" onclick="filterYear('all', this)">All</button>
+        <button class="filter-btn" onclick="filterYear('2025', this)">2025</button>
+
+    </div>
+
+    <div class="table-wrapper">
+        <table class="eligibility-table">
+            <thead>
+                <tr>
+                    <th>Media Name</th>
+                    <th>Status</th>
+                    <th>Reason / Note</th>
+                </tr>
+            </thead>
+            <tbody id="eligibility-body">
+                <tr class="filter-row year-2025">
+                    <td>4playernetwork (US)</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>PixlParade</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>The Save Room</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>You like the Worst Stuff</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Tie one to one.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Die or Pass Level</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Tie one to one.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>The Pre-Order Podcast</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Tie one to one.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Hall of Fame Videogames</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Recap without clear GOTY</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>8-bit Club House</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Tie one to one.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Soft Lock Podcast</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Not enough followers to count.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Glitch Cube</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Not selected clear GOTY.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>The RéClasico Podcast</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Not enough gaming content through year.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Mwah Gaming</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Middle-Aged Geeks</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>The Game Vault</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>
+                 <tr class="filter-row year-2025">
+                    <td>Drop-In Drop-Out</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td>Included both options</td>
+                </tr>
+                 <tr class="filter-row year-2025">
+                    <td>Nick and Jeff</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Tie one to one</td>
+                </tr>
+                 <tr class="filter-row year-2025">
+                    <td>Experience Points</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Tie one to one</td>
+                </tr>
+                 <tr class="filter-row year-2025">
+                    <td>AGAB</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Tie one to one</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>PDPG</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Weekly Games Chat</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Critical Diversions</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>PinoyGamer</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Selected games that were not released in 2025</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Pixel It</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Tie one to one</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Infinite Cities</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Tie</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Pinoy</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr> 
+                <tr class="filter-row year-2025">
+                    <td>Player Player</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr> 
+                <tr class="filter-row year-2025">
+                    <td>The Bit Effect</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr> 
+                <tr class="filter-row year-2025">
+                    <td>LAG Podcast</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr> 
+                <tr class="filter-row year-2025">
+                    <td>DQFM</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Tie one to one</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>The Back Page</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Tie one to one</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Video Game Podtimism</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Tie one to one</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>8-4 Play</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr> 
+                <tr class="filter-row year-2025">
+                    <td>Chance Time!</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Under 100 followers</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Nerd Squad Games</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr> 
+                <tr class="filter-row year-2025">
+                    <td>Bazinameh</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr> 
+                <tr class="filter-row year-2025">
+                    <td>Casual Sweats</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Tie, one to one.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>PSVerso</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Editorial Staff has only one member.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Game Junk</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Three people, three different GOTYs, no consensus.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>The Horizon</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr> 
+                <tr class="filter-row year-2025">
+                    <td>Electric Playground Network</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td>Both - Players´ choice and Staff choice</td>
+                </tr> 
+                <tr class="filter-row year-2025">
+                    <td>Pfangirl</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr> 
+                <tr class="filter-row year-2025">
+                    <td>IndianTV (Players´ Choice)</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr> 
+                <tr class="filter-row year-2025">
+                    <td>ntower</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Platform limited GOTYS.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Jam-e-Jam</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Article about The Game Awards.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Saate7</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>   
+                <tr class="filter-row year-2025">
+                    <td>Par30Games</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>       
+                <tr class="filter-row year-2025">
+                    <td>Game Palette</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>       
+                <tr class="filter-row year-2025">
+                    <td>The Level Up Legacy Podcast</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td>Tie between Clair Obscur: Expedition 33 and Trails in the Sky: Chapter 1 (both got two votes).</td>
+                </tr>               
+                <tr class="filter-row year-2025">
+                    <td>NeoGaf (Players' Choice)</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>  
+                 <tr class="filter-row year-2025">
+                    <td> High Scores High Stakes podcast</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Focus on Playstation primarly. Also not enough followers to count.</td>
+                </tr>
+                 <tr class="filter-row year-2025">
+                    <td>Demland</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Personal blog.</td>
+                </tr>
+                 <tr class="filter-row year-2025">
+                    <td>Albayan</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Not enough gaming content through year.</td>
+                </tr>
+                 <tr class="filter-row year-2025">
+                    <td>Aawsat</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Only translated article from Marin Independent Journal </td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Lapsed Gamer Radio (UK)</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>                
+                <tr class="filter-row year-2025">
+                    <td>Steam Awards</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Platform limited GOTY category (PC or Steam Deck only)</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Noclip</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Best title -) best name of the videogame.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Tower Casuals</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Focus on Xbox mostly over other platforms.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>True Achievements</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Focus on Xbox.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>NYX Awards</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Season awards, not yearly</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Golden Swing Awards</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Nomination games are older than one year.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>MrMattyPlays</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>One personal list.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Mix 104.9</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>One personal list.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Gamekult (FR)</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Combination of personal list without clear collective GOTY</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>Power Unlimited (NL)</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td></td>
+                </tr>  
+                <tr class="filter-row year-2025">
+                    <td>T3</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Personal list.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>TIME</td>
+                    <td class="status-rejected">Rejected</td>
+                    <td>Personal list.</td>
+                </tr>
+                <tr class="filter-row year-2025">
+                    <td>SECTOR.sk</td>
+                    <td class="status-accepted">Accepted</td>
+                    <td>Changed from Players´ Choice to Staff choice. Players´ Choice will be choosen soon as well.</td>
+                </tr>  
+            </tbody>
+        </table>
+    </div>
+</section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; GOTY INDEX 2025</p>
+    </footer>
+</body>
+</html>
+
