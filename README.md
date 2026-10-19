@@ -1,0 +1,1 @@
+# gotyindex.github.io
