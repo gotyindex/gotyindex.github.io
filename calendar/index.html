@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/favicon.png">
+    <title>GOTY INDEX - Contact</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<script>
+function filterYear(year, clickedElement) {
+    // 1. Přepnutí aktivního vzhledu tlačítek
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    clickedElement.classList.add('active');
+
+    // 2. Samotné filtrování řádků
+    const rows = document.querySelectorAll('.filter-row');
+    
+    rows.forEach(row => {
+        if (year === 'all') {
+            row.classList.remove('hidden');
+        } else {
+            // Kontrolujeme, zda má řádek třídu odpovídající roku (např. year-2025)
+            if (row.classList.contains('year-' + year)) {
+                row.classList.remove('hidden');
+            } else {
+                row.classList.add('hidden');
+            }
+        }
+    });
+}
+</script>
+<body>
+    <header class="main-header">
+        <nav class="header-nav">
+            <a href="https://www.gotyindex.com/" class="nav-link">Main page</a>
+            <a href="../guidelines" class="nav-link">Guidelines</a>
+        </nav>
+        <h1>📅 Calendar </h1>
+    </header>
+    
+    <main class="content-container">
+        <section class="info-card">
+    <h2 align="center">Confirmed Awarding Ceremonies/Events</h2>
+    
+    <div class="year-filter">
+        <button class="filter-btn active" onclick="filterYear('all', this)">All</button>
+        <button class="filter-btn" onclick="filterYear('October', this)">October</button>
+        <button class="filter-btn" onclick="filterYear('November', this)">November</button>
+        <button class="filter-btn" onclick="filterYear('December', this)">December</button>
+        <button class="filter-btn" onclick="filterYear('January', this)">January</button>
+        <button class="filter-btn" onclick="filterYear('February', this)">February</button>
+        <button class="filter-btn" onclick="filterYear('March', this)">March</button>
+        <button class="filter-btn" onclick="filterYear('April', this)">April</button>
+        <button class="filter-btn" onclick="filterYear('May', this)">May</button>
+
+
+
+
+
+
+
+
+    </div>
+
+    <div class="table-wrapper">
+        <table class="eligibility-table">
+            <thead>
+                <tr>
+                    <th>Media Name</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="eligibility-body">
+                <tr class="filter-row year-October">
+                    <td style="font-weight: bold;" class="media-list"><a href="https://www.larazon.es/videojuegos/eventos/premios-razon-videojuegos-by-difoosion-2026-estos-son-finalistas-mejor-juego-ano_202610196ad60766b79b18452fc9f4d2.html" target="blank" class="media-link">La Razon (ES)</td>
+                    <td class="status-accepted">18:00 UTC</td>
+                    <td class="status-accepted">28th October</td>
+                </tr>
+                <tr class="filter-row year-November">
+                    <td style="font-weight: bold;" class="media-list"><a href="https://gamescom.asia/thailand-game-awards" target="blank" class="media-link">Thailand Game Awards (TH)</td>
+                    <td class="status-accepted">--:-- UTC</td>
+                    <td class="status-accepted">1st November</td>
+                </tr>
+                <tr class="filter-row year-November">
+                    <td style="font-weight: bold;" class="media-list"><a href="https://www.gamesradar.com/goldenjoystickawards/" target="blank" class="media-link">Golden Joystick Awards (UK)</td>
+                    <td class="status-accepted">--:-- UTC</td>
+                    <td class="status-accepted">11th November</td>
+                </tr>
+                <tr class="filter-row year-November">
+                    <td style="font-weight: bold;" class="media-list"><a href="https://tiga.org/news/look-whos-attending-the-tiga-games-industry-awards-2026-will-you-be-there" target="blank" class="media-link">TIGA Game Awards (UK)</td>
+                    <td class="status-accepted">--:-- UTC</td>
+                    <td class="status-accepted">18th November</td>
+                </tr>
+                <tr class="filter-row year-December">
+                    <td style="font-weight: bold;" class="media-list"><a href="https://thegameawards.com/" target="blank" class="media-link">The Game Awards</td>
+                    <td class="status-accepted">0:30 UTC</td>
+                    <td class="status-accepted">11th December</td>
+              </tr>
+        </table>
+    </div>
+</section>
+    </main>
+
+<footer style="text-align: center; padding: 20px; font-size: 0.9em; color: #888;" class="main-footer">
+    <p>© 2026 <strong>GOTYINDEX</strong></p>
+    <p>
+        This work is licensed under 
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" style="color: #f39c12; text-decoration: none;">
+            CC BY-NC 4.0 (Creative Commons Attribution-NonCommercial)
+        </a>
+    </p>
+</footer>
+</body>
+</html>
+
