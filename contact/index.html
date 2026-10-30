@@ -33,11 +33,13 @@ function filterYear(year, clickedElement) {
 </script>
 <body>
     <header class="main-header">
-        <nav class="header-nav">
-            <a href="https://www.gotyindex.com/" class="nav-link">Main page</a>
-            <a href="../calendar" class="nav-link">Calendar</a>
-            <a href="../guidelines" class="nav-link">Guidelines</a>
-        </nav>
+            <nav class="header-nav">
+        <a href="https://gotyindex.github.io/" class="nav-link">🏠 Main Page</a>
+        <a href="https://discord.gg/afFGZg6pcJ" class="nav-link"><img src="../img/icon-discord.png" alt="" class="nav-icon"> Discord</a>
+        <a href="../guidelines" class="nav-link">📜 Guidelines</a>
+        <a href="../calendar" class="nav-link">📅 Calendar</a>
+        <a href="../contact" class="nav-link">📝 Help expand database!</a>
+    </nav>
         <h1>📠 Contact </h1>
     </header>
     
@@ -62,6 +64,8 @@ function filterYear(year, clickedElement) {
     <div class="year-filter">
         <button class="filter-btn active" onclick="filterYear('all', this)">All</button>
         <button class="filter-btn" onclick="filterYear('2025', this)">2025</button>
+        <button class="filter-btn" onclick="filterYear('2026', this)">2026</button>
+
 
     </div>
 
@@ -421,9 +425,15 @@ function filterYear(year, clickedElement) {
 </section>
     </main>
 
-    <footer class="main-footer">
-        <p>&copy; GOTY INDEX 2025</p>
-    </footer>
+<footer class="main-footer">
+    <p>© 2026 <strong>GOTYINDEX</strong></p>
+    <p>
+        This work is licensed under 
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" style="color: #f39c12; text-decoration: none;">
+            CC BY-NC 4.0 (Creative Commons Attribution-NonCommercial)
+        </a>
+    </p>
+</footer>
 </body>
 </html>
 
